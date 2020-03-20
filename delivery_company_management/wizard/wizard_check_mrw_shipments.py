@@ -21,9 +21,6 @@ class WizardSetChangePricesMargins(models.TransientModel):
 
     @api.multi
     def check_mrw_file(self):
-        import wdb
-        wdb.set_trace()
-
         mass_shippmet = self.env[self._context['active_model']].browse(self._context['active_id'])
 
         with tempfile.NamedTemporaryFile(suffix=".csv") as fp:

@@ -36,21 +36,6 @@ msgid "Department Code"
 msgstr "Código de departamento"
 
 #. module: delivery_carrier_gls
-#: field:gls.config,franchise_code:0
-msgid "Franchise Code"
-msgstr "Código de franquicia"
-
-#. module: delivery_carrier_gls
-#: selection:stock.picking,gls_frequence:0
-msgid "Frecuencia 1"
-msgstr "Frecuencia 1"
-
-#. module: delivery_carrier_gls
-#: selection:stock.picking,gls_frequence:0
-msgid "Frecuencia 2"
-msgstr "Frecuencia 2"
-
-#. module: delivery_carrier_gls
 #: field:gls.config,id:0
 msgid "ID"
 msgstr "ID"
@@ -84,15 +69,16 @@ msgstr "GLS"
 msgid "GLS Config"
 msgstr "Configuración GLS"
 
-#. module: delivery_carrier_gls
-#: field:stock.picking,gls_frequence:0
-msgid "Gls Frequence"
-msgstr "Frecuencia GLS"
 
 #. module: delivery_carrier_gls
 #: field:stock.picking,gls_service_type:0
 msgid "Gls Service"
 msgstr "Tipo de servicio GLS"
+
+#. module: delivery_carrier_gls
+#: field:stock.picking,gls_schedule:0
+msgid "Gls Horarios"
+msgstr "Horarios servicio GLS"
 
 #. module: delivery_carrier_gls
 #: field:gls.config,name:0

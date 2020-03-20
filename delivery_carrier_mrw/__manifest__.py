@@ -22,7 +22,7 @@
 {
     'name':'MRW Deliveries WebService',
     'version':'0.1',
-    'author':"FactorLibre",
+    'author':"FactorLibre, migrated to 10 version for Halltic eSolutions",
     'category':'Sales Management',
     'depends':[
         'delivery',

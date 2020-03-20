@@ -20,8 +20,11 @@
 ##############################################################################
 import os
 import logging
-from suds.client import Client
+import urllib2
+
+from string import Template
 from suds.plugin import MessagePlugin
+from odoo import api
 
 _logger = logging.getLogger(__name__)
 
@@ -36,30 +39,35 @@ class LogPlugin(MessagePlugin):
 
 class GlsBase(object):
 
-    def __init__(self, gls_config, wsdl_name):
-        wsdl_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                                 'wsdl')
-        self.gls_config = gls_config
-        if self.gls_config.is_test:
-            self.wsdl_path = os.path.join(wsdl_path, 'wsdl_test', wsdl_name)
-        else:
-            self.wsdl_path = os.path.join(wsdl_path, wsdl_name)
-        self.client = Client('file:///%s' % self.wsdl_path.lstrip('/'),
-                             cache=None, plugins=[LogPlugin()])
-
-
-class GlsEnvio(GlsBase):
-
     def __init__(self, gls_config):
+        self._url = 'https://wsclientes.asmred.com/b2b.asmx?wsdl'
         self.gls_config = gls_config
-        super(GlsEnvio, self).__init__(self.gls_config, 'GLSEnvio.wsdl')
 
-        auth_info = self.client.factory.create('AuthInfo')
-        auth_info.CodigoFranquicia = self.gls_config.franchise_code
-        auth_info.CodigoAbonado = self.gls_config.subscriber_code
-        if self.gls_config.department_code:
-            auth_info.CodigoDepartamento = self.gls_config.department_code
-        auth_info.UserName = self.gls_config.username
-        auth_info.Password = self.gls_config.password
 
-        self.client.set_options(soapheaders=auth_info)
+class GlsRequest(GlsBase):
+
+    def api_request(self, data):
+        xml = self.return_xml(data)
+        headers = {
+            'Content-Type':'application/soap+xml; charset=utf-8',
+            'Content-Type':'text/xml; charset=utf-8',
+            'Content-Length':len(xml),
+        }
+        request = urllib2.Request(self._url, xml.encode('utf8'), headers)
+        response = urllib2.urlopen(request)
+        return response.read()
+
+    @api.model
+    def return_xml(self, vals):
+        """
+        :param vals:
+        :param gls_config:
+        :return:
+        """
+        xml = ''
+        if vals.get('Command') == 'GrabaServicios':
+            vals['XMLData']['username'] = self.gls_config.uid_test if self.gls_config.is_test else self.gls_config.uid
+
+        t = Template(vals['XML'])
+        xml = t.substitute(**vals['XMLData'])
+        return xml

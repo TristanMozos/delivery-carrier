@@ -18,32 +18,40 @@
             <form>
                 <header>
                     <field name="state" widget="statusbar"/>
+                    <button string="Save waiting products"
+                            type="object"
+                            name="save_waiting_products"
+                            states="import,generate"/>
                     <button string="Import pending orders"
-                                type="object"
-                                name="get_pending_orders"
-                                class="oe_highlight"
-                                states="import"/>
+                            type="object"
+                            name="get_pending_orders"
+                            class="oe_highlight"
+                            states="import"/>
                     <button string="Import pending orders"
-                                type="object"
-                                name="get_pending_orders"
-                                states="generate,confirm"/>
+                            type="object"
+                            name="get_pending_orders"
+                            states="generate,confirm"/>
                     <button string="Generate orders"
-                                type="object"
-                                name="generate_orders"
-                                class="oe_highlight"
-                                states="generate"/>
+                            type="object"
+                            name="generate_orders"
+                            class="oe_highlight"
+                            states="generate"/>
                     <button string="Generate orders"
-                                type="object"
-                                name="generate_orders"
-                                states="import,confirm"/>
+                            type="object"
+                            name="generate_orders"
+                            states="import,confirm"/>
                     <button string="Confirm marketplace orders"
-                                type="object"
-                                name="confirm_orders_on_marketplaces"
-                                class="oe_highlight"
-                                states="confirm"/>
+                            type="object"
+                            name="confirm_orders_on_marketplaces"
+                            class="oe_highlight"
+                            states="confirm"/>
                 </header>
-                <group><field name="shipment_date" string="Delivery date" /></group>
-                <group attrs="{'invisible':[('error_message','=',False)]}"><field name="error_message" string="Error message" /></group>
+                <group>
+                    <field name="shipment_date" string="Delivery date"/>
+                </group>
+                <group attrs="{'invisible':[('error_message','=',False)]}">
+                    <field name="error_message" string="Error message"/>
+                </group>
                 <group>
                     <field name="stock_picking_ids" nolabel="1" widget="one2many_list">
                         <tree string="Shipments" editable="bottom">

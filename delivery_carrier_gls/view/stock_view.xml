@@ -8,7 +8,7 @@
             <field name="arch" type="xml">
                 <field name="carrier_code" position="after">
                     <field name="gls_service_type" attrs="{'invisible': [('carrier_type', '!=', 'gls')], 'required': [('carrier_type', '=', 'gls')]}"/>
-                    <field name="gls_frequence" attrs="{'invisible': ['|',('carrier_type', '!=', 'gls')]}"/>
+                    <field name="gls_schedule" attrs="{'invisible': [('carrier_type', '!=', 'gls')], 'required': [('carrier_type', '=', 'gls')]}"/>
                 </field>
             </field>
         </record>

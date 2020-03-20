@@ -9,9 +9,9 @@
                 <tree string="GLS Config" version="7.0">
                     <field name="name"/>
                     <field name="is_test"/>
-                    <field name="franchise_code"/>
-                    <field name="subscriber_code"/>
-                    <field name="username"/>
+                    <field name="office_number"/>
+                    <field name="uid_test"/>
+                    <field name="uid"/>
                 </tree>
             </field>
         </record>
@@ -29,21 +29,10 @@
                         </div>
                         <group>
                             <group>
-                                <field name="franchise_code"/>
-                                <field name="subscriber_code"/>
-                                <field name="department_code"/>
-                            </group>
-                            <group>
                                 <field name="is_test" class="oe_inline"/>
-                                <field name="username"/>
-                                <field name="password" password="True"/>
-                            </group>
-                            <group>
+                                <field name="uid" attrs="{'invisible': [('is_test', '=', True)], 'required': [('is_test', '!=', True)]}"/>
+                                <field name="uid_test" attrs="{'invisible': [('is_test', '!=', True)], 'required': [('is_test', '=', True)]}"/>
                                 <field name="url_shipment_path"/>
-                            </group>
-                            <group>
-                                <field name="username_web"/>
-                                <field name="password_web" password="True"/>
                             </group>
                         </group>
                     </sheet>
