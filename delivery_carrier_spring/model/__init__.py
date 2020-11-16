@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2018 Halltic eSolutions S.L. (http://www.halltic.com)
+#    Odoo, Open Source Management Solution
+#    Copyright (C) 2019 Halltic eSolutions S.L. (http://www.halltic.com)
 #                  Tristán Mozos <tristan.mozos@halltic.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -22,3 +22,4 @@
 from . import spring_config
 from . import delivery
 from . import stock
+from . import tracking

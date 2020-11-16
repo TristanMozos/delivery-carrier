@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Odoo, Open Source Management Solution
-#    Copyright (C) 2018 Halltic eSolutions S.L. (http://www.halltic.com)
+#    Copyright (C) 2020 Halltic eSolutions S.L. (http://www.halltic.com)
 #                  Tristán Mozos <tristan.mozos@halltic.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -19,6 +19,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+import re
 import base64
 from datetime import datetime
 from xml.dom.minidom import parseString
@@ -128,28 +129,6 @@ class StockPicking(models.Model):
             ('19', 'ParcelShop')
         ]
 
-    def _compute_schedule(self):
-        """
-            0	10:00 Service	Para el servicio 1 (COURIER)
-            2	14:00 Service	Para el servicio 1 (COURIER)
-            3	BusinessParcel	Para el servicio 1 (COURIER)
-            5	SaturdayService
-            7	INTERDIA
-            9	Franja Horaria
-            4	Masivo	Para el servicio 1 (COURIER)
-            10	Maritimo	Para el servicio 6 (CARGA)
-            11	Rec. en NAVE.
-            13	Ent. Pto. ASM
-            18	EconomyParcel Para el servicio 37 (ECONOMY)
-            19	ParcelShop
-        :return:
-        """
-        if self.gls_service_type == '1':
-            return '3'
-        elif self.gls_service_type == '37':
-            return '18'
-        return
-
     gls_service_type = fields.Selection('_get_gls_service_type', string='Gls Service')
 
     gls_schedule = fields.Selection('_get_gls_schedule', string='Gls Schedule')
@@ -172,8 +151,8 @@ class StockPicking(models.Model):
 
         warehouse_address = self.picking_type_id.warehouse_id.partner_id
         product_list = []
-        package_content = None
-        reference_content = None
+        package_content = ''
+        reference_content = ''
         weigth_content = 0
         length_pack = 0
         width_pack = 0
@@ -238,12 +217,12 @@ class StockPicking(models.Model):
             'destinatario_telefono':self.partner_id.phone,
             'destinatario_movil':self.partner_id.phone,
             'destinatario_email':self.partner_id.email,
-            'destinatario_observaciones':'',
+            'destinatario_observaciones':reference_content,
             'destinatario_att':'',
             'destinatario_departamento':'',
             'destinatario_nif':'',
-            'referencia_c':self.name,
-            'referencia_0':reference_content,
+            'referencia_c': re.sub(u'[^\d]', '',self.name),
+            'referencia_0':'',
             'importes_debido':'',
             'importes_reembolso':'0',
             'seguro':'0',
@@ -356,11 +335,23 @@ class StockPicking(models.Model):
         gls_api = GlsRequest(self.carrier_id.gls_config_id)
 
         if package_ids:
-            label_response = self._get_gls_label(gls_api, package_ids)
+            # If there isn't carrier_tracking_ref we are going to get this
+            if not self.carrier_tracking_ref:
+                tracking_request = self._get_gls_ship_data()
+                tracking_response = gls_api.api_request(tracking_request)
+                dom = parseString(tracking_response)
+                if dom.getElementsByTagName('expediciones'):
+                    expediciones = dom.getElementsByTagName('expediciones')
+                    expedicion = expediciones[0].getElementsByTagName('exp')
+                    codbar = expedicion[0].getElementsByTagName('codbar')
+                    tracking = codbar[0].firstChild.data
+                    if tracking:
+                        self.carrier_tracking_ref = tracking
+
+            label_response = self._get_gls_label()
             data = label_response
         else:
             data = self._gls_graba_envio_xml()
-
 
         response = gls_api.api_request(data)
 
@@ -368,12 +359,10 @@ class StockPicking(models.Model):
 
         label_data = None
         if package_ids:
-            import wdb
-            wdb.set_trace()
             etiquetas = dom.getElementsByTagName('EtiquetaEnvioResult')
             etiqueta = etiquetas[0].getElementsByTagName('base64Binary')
             label_data = etiqueta[0].firstChild.data
-            reference = self.name
+            reference = self.carrier_tracking_ref
         else:
             envio = dom.getElementsByTagName('Envio')
 
@@ -403,7 +392,7 @@ class StockPicking(models.Model):
         return [label]
 
     @api.multi
-    def _get_gls_label(self, gls_api, shipper_reference):
+    def _get_gls_label(self):
         self.ensure_one()
 
         xml = '''<?xml version="1.0" encoding="utf-8"?>
@@ -419,9 +408,28 @@ class StockPicking(models.Model):
 
         data = {'Command':'EtiquetaEnvio'}
         data['XML'] = xml
-        data['XMLData']={'reference':self.name, 'type_format':'PDF'}
-        response = gls_api.api_request(data)
-        return response if response and response.get('ErrorLevel') == 0 else None
+        data['XMLData']={'reference':self.carrier_tracking_ref, 'type_format':'PDF'}
+        return data
+
+    @api.multi
+    def _get_gls_ship_data(self):
+        self.ensure_one()
+
+        xml = '''<?xml version="1.0" encoding="utf-8"?>
+                   <soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+                     <soap12:Body>
+                       <GetExpCli xmlns="http://www.asmred.com/">
+                         <codigo>${reference}</codigo>
+                         <uid>${username}</uid>
+                       </GetExpCli>
+                     </soap12:Body>
+                   </soap12:Envelope>
+                   '''
+
+        data = {'Command': 'GetExpCli'}
+        data['XML'] = xml
+        data['XMLData'] = {'reference': re.sub(u'[^\d]', '',self.name)}
+        return data
 
     @api.multi
     def generate_shipping_labels(self, package_ids=None):

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+        <record id="view_tracking_states_tree" model="ir.ui.view">
+			<field name="name">Tracking</field>
+			<field name="model">tracking.carrier.state</field>
+			<field name="arch" type="xml">
+                <tree default_order="state_date asc">
+                    <field name="state_date"/>
+                    <field name="event"/>
+                    <field name="comment"/>
+                </tree>
+			</field>
+		</record>
+
+    </data>
+</odoo>

@@ -26,8 +26,17 @@ class DeliveryCarrier(models.Model):
     _inherit = 'delivery.carrier'
 
     @api.model
+    def get_mrw_url_tracking(self, picking):
+        if picking.carrier_tracking_ref:
+            return ['https://mrw.es/seguimiento_envios/MRW_resultados_consultas.asp?modo=nacional&envio=%s' % picking.carrier_tracking_ref]
+
+        return ['https://www.mrw.es']
+
+    @api.model
     def get_tracking_link(self, picking):
-        return str(self.mrw_config_id.url_shipment_path) % picking.carrier_tracking_ref
+        if self.carrier_type == 'mrw':
+            return self.get_mrw_url_tracking(picking)
+        return super(DeliveryCarrier, self).get_tracking_link(picking)
 
     @api.model
     def _get_carrier_type_selection(self):

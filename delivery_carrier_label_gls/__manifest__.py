@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) All Rights Reserved 2014 Akretion
-#    @author David BEAL <david.beal@akretion.com>
+#    Odoo, Open Source Management Solution
+#    Copyright (C) 2018 Halltic eSolutions S.L. (http://www.halltic.com)
+#                  Tristán Mozos <tristan.mozos@halltic.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -17,7 +18,7 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-###############################################################################
+##############################################################################
 
 
 {

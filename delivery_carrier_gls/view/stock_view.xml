@@ -10,6 +10,11 @@
                     <field name="gls_service_type" attrs="{'invisible': [('carrier_type', '!=', 'gls')], 'required': [('carrier_type', '=', 'gls')]}"/>
                     <field name="gls_schedule" attrs="{'invisible': [('carrier_type', '!=', 'gls')], 'required': [('carrier_type', '=', 'gls')]}"/>
                 </field>
+                <field name="number_of_packages" position="after">
+                    <field name="received"/>
+                    <field name="in_transit"/>
+                    <field name="delivered"/>
+                </field>
             </field>
         </record>
 

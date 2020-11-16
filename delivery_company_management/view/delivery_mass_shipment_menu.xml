@@ -4,15 +4,22 @@
     <!-- Mass shipment menu -->
     <menuitem id="menu_mass_shipment_root"
         parent="stock.menu_stock_root"
-        name="Mass shipments"
+        name="Management deliveries"
         sequence="10"
         groups="stock.group_stock_user"/>
 
-    <!-- Backends submenu -->
+    <!-- Mass shipment submenu -->
     <menuitem id="menu_mass_shipment_management"
         name="Mass Shipment Management"
         parent="menu_mass_shipment_root"
         action="action_mass_shipment_management"
+        groups="stock.group_stock_manager"/>
+
+    <!-- Delivery issues submenu -->
+    <menuitem id="menu_delivery_issues"
+        name="Delivery issues"
+        parent="menu_mass_shipment_root"
+        action="action_delivery_issue"
         groups="stock.group_stock_manager"/>
 
 </odoo>

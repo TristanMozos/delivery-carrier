@@ -28,3 +28,4 @@ class SpringConfig(models.Model):
     name = fields.Char('Name', required=True)
     is_test = fields.Boolean('Is a test?')
     api_key = fields.Char('Api Key', required=True)
+    days_since_get_tracking = fields.Integer('Days since get trakings', default=30, required=True)

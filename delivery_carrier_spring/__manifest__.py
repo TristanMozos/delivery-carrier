@@ -26,9 +26,10 @@
     'category':'Sales Management',
     'depends':[
         'delivery',
-        'base_delivery_carrier_label'
+        'base_delivery_carrier_label',
+        'base_delivery_carrier_tracking'
     ],
-    'website':'http://www.halltic.com',
+    'website':'https://www.halltic.com',
     'data':[
         'security/ir.model.access.csv',
         'view/spring_config_view.xml',

@@ -28,6 +28,7 @@
                             <group>
                                 <field name="is_test" class="oe_inline"/>
                                 <field name="api_key"/>
+                                <field name="days_since_get_tracking"/>
                             </group>
                         </group>
                     </sheet>

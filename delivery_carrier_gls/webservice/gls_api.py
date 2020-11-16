@@ -48,6 +48,7 @@ class GlsRequest(GlsBase):
 
     def api_request(self, data):
         xml = self.return_xml(data)
+        _logger.info(xml)
         headers = {
             'Content-Type':'application/soap+xml; charset=utf-8',
             'Content-Type':'text/xml; charset=utf-8',
@@ -65,7 +66,7 @@ class GlsRequest(GlsBase):
         :return:
         """
         xml = ''
-        if vals.get('Command') == 'GrabaServicios':
+        if vals.get('Command') in ('GrabaServicios', 'GetExpCli'):
             vals['XMLData']['username'] = self.gls_config.uid_test if self.gls_config.is_test else self.gls_config.uid
 
         t = Template(vals['XML'])

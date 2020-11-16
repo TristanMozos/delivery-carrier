@@ -20,3 +20,4 @@
 #
 ##############################################################################
 from . import mass_shipment_management
+from . import delivery_checks

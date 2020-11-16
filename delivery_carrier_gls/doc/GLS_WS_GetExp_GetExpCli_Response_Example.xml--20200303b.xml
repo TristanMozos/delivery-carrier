@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<expediciones>
+   <exp>
+      <expedicion>80-174705756</expedicion>
+      <albaran>ABC6543254</albaran>
+      <fecha>04/08/2014 0:00:00</fecha>
+      <FPEntrega>05/08/2014 0:00:00</FPEntrega>
+      <servicio>COURIER</servicio>
+      <horario>BusinessParcel</horario>
+      <tipo_portes>P</tipo_portes>
+      <codServicio>1</codServicio>
+      <codHorario>3</codHorario>
+      <nif_org></nif_org>
+      <nombre_org>NOMBRE CLIENTE</nombre_org>
+      <calle_org>DIRECCION CLIENTE</calle_org>
+      <localidad_org>VILANOVA I LA GELTRU</localidad_org>
+      <cp_org>08800</cp_org>
+      <tfno_org></tfno_org>
+      <departamento_org></departamento_org>
+      <codpais_org>34</codpais_org>
+      <nif_dst></nif_dst>
+      <nombre_dst>ALbert Roig </nombre_dst>
+      <calle_dst>c/Dolca de Provenca 2222 casa</calle_dst>
+      <localidad_dst>Premia de Dalt</localidad_dst>
+      <cp_dst>08338</cp_dst>
+      <tfno_dst>600000000</tfno_dst>
+      <departamento_dst></departamento_dst>
+      <codpais_dst>34</codpais_dst>
+      <codplaza_cli>80</codplaza_cli>
+      <codcli>00001</codcli>
+      <nmCliente>NOMBRE CLIENTE</nmCliente>
+      <codcli_may></codcli_may>
+      <codcli_red_pag>-80</codcli_red_pag>
+      <nmClired>BARCELONA TRANS.</nmClired>
+      <codprov_red_org></codprov_red_org>
+      <ProvOrg></ProvOrg>
+      <codprov_red_dst>10155</codprov_red_dst>
+      <ProvDst>FERNANDO LOSTADO ARRONDO</ProvDst>
+      <codplaza_prv>80</codplaza_prv>
+      <codprov>138</codprov>
+      <bultos>1</bultos>
+      <kgs>6,0</kgs>
+      <vol>0,177</vol>
+      <kgsvol_prv_red_org></kgsvol_prv_red_org>
+      <kgsvol_prv_red_dst>30,0</kgsvol_prv_red_dst>
+      <kgsvol_cli>30,0</kgsvol_cli>
+      <kgsvol_prv></kgsvol_prv>
+      <hoja>1153</hoja>
+      <codrepartidor>7</codrepartidor>
+      <repartidor>GOJAIN</repartidor>
+      <fHoja>21/10/2013 0:00:00</fHoja>
+      <estHoja>2</estHoja>
+      <punteados>1</punteados>
+      <reasignados>0</reasignados>
+      <fPunteo>05/08/2014 8:12:05</fPunteo>
+      <plzorg>X00</plzorg>
+      <plazaorg>BARCELONA</plazaorg>
+      <plzdst>E41</plzdst>
+      <plazadst>PAMPLONA</plazadst>
+      <plzpag>X00</plzpag>
+      <plazapag>BARCELONA</plazapag>
+      <codplaza_org>80</codplaza_org>
+      <codplaza_dst>620</codplaza_dst>
+      <codplaza_pag>80</codplaza_pag>
+      <borrado>N</borrado>
+      <codestado>7</codestado>
+      <estado>ENTREGADO</estado>
+      <pod>05/08/2014 12:10:00</pod>
+      <tipopod>5</tipopod>
+      <nmtipopod>Sello</nmtipopod>
+      <firma></firma>
+      <DniEntrega>72424057R</DniEntrega>
+      <NombreEntrega>OLBARREDI</NombreEntrega>
+      <digCaja></digCaja>
+      <digLote></digLote>
+      <digPosicion></digPosicion>
+      <digTipo></digTipo>
+      <incidencia>SIN INCIDENCIA</incidencia>
+      <Observacion></Observacion>
+      <codplaza_vlj></codplaza_vlj>
+      <codvalija></codvalija>
+      <ida_vuelta></ida_vuelta>
+      <codsaca></codsaca>
+      <columna>0</columna>
+      <calidad>0</calidad>
+      <codexp>174705756</codexp>
+      <nuo>174705756</nuo>
+      <codbar>21222224444444</codbar>
+      <uidExp>11111111-2222-4ad4-8826-c145c316e1eb</uidExp>
+      <solCli>0</solCli>
+      <TipoMercancia></TipoMercancia>
+      <DescMercancia></DescMercancia>
+      <dac>SIN RCS</dac>
+      <retorno>SIN RETORNO</retorno>
+      <refInternacional></refInternacional>
+      <refGlsG>Z6ZK5L01</refGlsG>
+      <refGlsN>31115297777</refGlsN>
+	  <tracking_list>
+         <tracking>
+            <fecha>04/08/2015 0:00:00</fecha>
+            <tipo>URLPARTNER</tipo>
+            <plaza>-1</plaza>
+            <evento>https://www.myhermes.de/wps/portal/paket/Home/privatkunden/sendungsverfolgung/!ut/p/b1/04_SjzQ0MLA0MjExMjfQj9xxxxxxxxxxxxxxxxxxxxHZ0MHQ0sfEydDTwDXEIMPIKCjP1dDfUjgQrMcSoINdAP14_EryAKqCYxGWSffm6UR2W5o6IiAFiS83w!/?action=trace&shipmentID=67099163700006&receiptID=</evento>
+            <prioridad>0</prioridad>
+            <codigo></codigo>
+            <nombreplaza>OFICINA CENTRAL</nombreplaza>
+            </tracking>
+         <tracking>
+            <fecha>04/08/2014 18:36:00</fecha>
+            <tipo>ESTADO</tipo>
+            <plaza>80</plaza>
+            <evento>RECIBIDA INFORMACION - EXP.IMPORT.Diferido</evento>
+            <prioridad>1</prioridad>
+            <codigo>0</codigo>
+            <nombreplaza>BARCELONA</nombreplaza>
+         </tracking>
+         <tracking>
+            <fecha>05/08/2014 8:07:00</fecha>
+            <tipo>ESTADO</tipo>
+            <plaza>620</plaza>
+            <evento>EN DELEGACION DESTINO - Por punteo</evento>
+            <prioridad>1</prioridad>
+            <codigo>3</codigo>
+            <nombreplaza>PAMPLONA</nombreplaza>
+         </tracking>
+         <tracking>
+            <fecha>05/08/2014 9:08:00</fecha>
+            <tipo>ESTADO</tipo>
+            <plaza>620</plaza>
+            <evento>EN REPARTO - Al Cerrar Hoja 1153</evento>
+            <prioridad>1</prioridad>
+            <codigo>6</codigo>
+            <nombreplaza>PAMPLONA</nombreplaza>
+         </tracking>
+         <tracking>
+            <fecha>05/08/2014 12:10:00</fecha>
+            <tipo>ENTREGA</tipo>
+            <plaza></plaza>
+            <evento>ENTREGADO con tipo de Firma (Sello) DNI:72424057R NOMBRE:OLBARREDI</evento>
+            <prioridad>0</prioridad>
+            <codigo></codigo>
+            <nombreplaza></nombreplaza>
+         </tracking>
+         <tracking>
+            <fecha>05/08/2014 17:37:00</fecha>
+            <tipo>ESTADO</tipo>
+            <plaza>620</plaza>
+            <evento>ENTREGADO - Por Grabacion de POD</evento>
+            <prioridad>1</prioridad>
+            <codigo>7</codigo>
+            <nombreplaza>PAMPLONA</nombreplaza>
+         </tracking>
+         <tracking>
+            <fecha>05/08/2014 17:37:00</fecha>
+            <tipo>POD</tipo>
+            <plaza></plaza>
+            <evento>POD Anotado en DST</evento>
+            <prioridad>0</prioridad>
+            <codigo></codigo>
+            <nombreplaza></nombreplaza>
+         </tracking>
+         <tracking>
+            <fecha>05/09/2014 0:00:00</fecha>
+            <tipo>FACTURA</tipo>
+            <plaza>80</plaza>
+            <evento>Factura : 80-161000</evento>
+            <prioridad>0</prioridad>
+         </tracking>
+      </tracking_list>
+      <digitalizaciones>
+         <digitalizacion>
+            <codtipo>1</codtipo>
+            <tipo>POD</tipo>
+            <fecha>06/08/2014 10:07:00</fecha>
+            <imagen>http://pods.asmred.com/extranet/public/imagenes/Archivus/06082014/ThisIsAnExample_Dontworks.jpg
+            </imagen>
+            <observaciones>Digitalizado por Archivus</observaciones>
+         </digitalizacion>
+         <digitalizacion>
+            <codtipo>1</codtipo>
+            <tipo>POD (PDA)</tipo>
+            <fecha>24/04/2014 11:41:00</fecha>
+            <imagen>http://pods.asmred.com/Extranet/public/AlbaranDesdeFirma.aspx?codplaza_org=771&amp;codexp=169388525</imagen>
+            <observaciones>Firma recogida en PDA</observaciones>
+         </digitalizacion>
+         <digitalizacion>
+            <codtipo>8</codtipo>
+            <tipo>DIGIT.DNI</tipo>
+            <fecha>24/04/2014 11:39:00</fecha>
+            <imagen>http://pods.asmred.com/extranet/public/imagenes\SELLOSPDAS\20140424\771_169388525_12013_DNI1.jpg</imagen>
+            <observaciones>Digitalizado desde PDA</observaciones>
+         </digitalizacion>
+         <digitalizacion>
+            <codtipo>8</codtipo>
+            <tipo>DIGIT.DNI</tipo>
+            <fecha>24/04/2014 11:39:00</fecha>
+            <imagen>http://pods.asmred.com/extranet/public/imagenes\SELLOSPDAS\20140424\771_169388525_12013_DNI2.jpg</imagen>
+            <observaciones>Digitalizado desde PDA</observaciones>
+         </digitalizacion>
+      </digitalizaciones>
+   </exp>
+</expediciones>

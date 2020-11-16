@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+  <!-- From DELIVERY module on STOCK.PICKING -->
+  <!-- FORM -->
+  <record id="view_picking_withcarrier_out_form" model="ir.ui.view">
+    <field name="model">stock.picking</field>
+    <field name="inherit_id" ref="delivery.view_picking_withcarrier_out_form"/>
+    <field name="arch" type="xml">
+      <field name="state" position="before">
+        <button name="action_get_carrier_tracking" attrs="{'invisible': [('carrier_tracking_ref', '=', False)]}" string="Get tracking states" type="object"/>
+      </field>
+      <field name="option_ids" position="before">
+        <field name="tracking_state_ids" attrs="{'invisible': [('tracking_state_ids', '=', False)]}"/>
+      </field>
+    </field>
+  </record>
+
+</odoo>

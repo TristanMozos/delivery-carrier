@@ -3,3 +3,5 @@ access_mass_shipment_management,delivery_company.config.user,model_mass_shipment
 access_mass_shipment_management,delivery_company.config.manager,model_mass_shipment_management,stock.group_stock_manager,1,1,1,1
 access_mass_shipment_stock_picking,delivery_company.config.user,model_mass_shipment_stock_picking,stock.group_stock_user,1,0,0,0
 access_mass_shipment_stock_picking,delivery_company.config.manager,model_mass_shipment_stock_picking,stock.group_stock_manager,1,1,1,1
+access_delivery_issue,delivery_company.config.user,model_delivery_issue,stock.group_stock_user,1,0,0,0
+access_delivery_issue,delivery_company.config.manager,model_delivery_issue,stock.group_stock_manager,1,1,1,1

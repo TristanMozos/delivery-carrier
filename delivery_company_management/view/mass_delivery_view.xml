@@ -5,7 +5,7 @@
         <field name="name">Mass Shipment Management</field>
         <field name="model">mass.shipment.management</field>
         <field name="arch" type="xml">
-            <tree string="Shipments">
+            <tree string="Shipments" default_order="create_date desc">
                 <field name="shipment_date" string="Delivery date"/>
             </tree>
         </field>
@@ -18,10 +18,14 @@
             <form>
                 <header>
                     <field name="state" widget="statusbar"/>
-                    <button string="Save waiting products"
+                    <button string="Move task to send"
                             type="object"
-                            name="save_waiting_products"
-                            states="import,generate"/>
+                            name="move_done_orders_to_send_task"
+                            groups="base.group_erp_manager"/>
+                    <button string="Import stock pending"
+		                        type="action"
+		                        name="%(delivery_company_management.action_view_wizard_move_pending_product_deliveries)d"
+                                states="import,generate,confirm"/>
                     <button string="Import pending orders"
                             type="object"
                             name="get_pending_orders"
@@ -44,7 +48,15 @@
                             type="object"
                             name="confirm_orders_on_marketplaces"
                             class="oe_highlight"
-                            states="confirm"/>
+                            states="confirm,closed"/>
+
+                    <button string="Close the day"
+                            type="object"
+                            name="close_day"
+                            class="oe_highlight"
+                            confirm="Are you sure that you want to close the day?"
+                            states="import,generate,confirm"/>
+
                 </header>
                 <group>
                     <field name="shipment_date" string="Delivery date"/>
@@ -65,7 +77,7 @@
                             <field name="country_customer_name" readonly="1"/>
                             <field name="type_ship"/>
                             <field name="is_done"/>
-                            <field name="margin"/>
+                            <field name="task_id"/>
                         </tree>
                     </field>
                 </group>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Servicios uidcliente="6BAB7A53-3B6D-4D5A-9450-702D2FAC0B11" xmlns="http://www.asmred.com/">
+  <Envio codbarras="">
+    <Fecha>14/08/2014</Fecha>
+    <Portes>P</Portes>
+    <Servicio>1</Servicio>
+    <Horario>3</Horario>
+    <Bultos>1</Bultos>
+    <Peso>4</Peso>
+    <Retorno>0</Retorno>
+    <Pod>N</Pod>
+    <Remite>
+      <Plaza></Plaza>
+      <Nombre><![CDATA[ARG Solutions]]></Nombre>
+      <Direccion><![CDATA[C/Dolca de Provenca 2222]]></Direccion>
+      <Poblacion><![CDATA[Premia de Dalt]]></Poblacion>
+      <Provincia><![CDATA[Barcelona]]></Provincia>
+      <Pais>34</Pais>
+      <CP>08338</CP>
+      <Telefono><![CDATA[961111111]]></Telefono>
+      <Movil><![CDATA[]]></Movil>
+      <Email><![CDATA[]]></Email>
+      <Observaciones><![CDATA[]]></Observaciones>
+    </Remite>
+    <Destinatario>
+      <Codigo></Codigo>
+      <Plaza></Plaza>
+      <Nombre><![CDATA[Mr Test]]></Nombre>
+      <Direccion><![CDATA[Calle Juan Esplandi 513b]]></Direccion>
+      <Poblacion><![CDATA[Madrid]]></Poblacion>
+      <Provincia><![CDATA[Madrid]]></Provincia>
+      <Pais>34</Pais>
+      <CP>28007</CP>
+      <Telefono><![CDATA[933888777]]></Telefono>
+      <Movil><![CDATA[666777888]]></Movil>
+      <Email><![CDATA[test@test.com]]></Email>
+      <Observaciones><![CDATA[Fragile]]></Observaciones>
+      <ATT><![CDATA[Mr Test Contact]]></ATT>
+    </Destinatario>
+    <Referencias> <!-- remember put a different value in each test -->
+      <Referencia tipo="C"><![CDATA[111122222]]></Referencia>
+    </Referencias>
+    <Importes>
+      <Reembolso>10,50</Reembolso>
+    </Importes>
+  </Envio>
+</Servicios>

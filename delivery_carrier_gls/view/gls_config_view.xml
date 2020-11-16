@@ -32,7 +32,7 @@
                                 <field name="is_test" class="oe_inline"/>
                                 <field name="uid" attrs="{'invisible': [('is_test', '=', True)], 'required': [('is_test', '!=', True)]}"/>
                                 <field name="uid_test" attrs="{'invisible': [('is_test', '!=', True)], 'required': [('is_test', '=', True)]}"/>
-                                <field name="url_shipment_path"/>
+                                <field name="days_since_get_tracking"/>
                             </group>
                         </group>
                     </sheet>
